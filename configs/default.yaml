@@ -1,0 +1,51 @@
+seed: 42
+model:
+  text_dim: 384
+  graph_hidden: 128
+  graph_layers: 3
+  attn_dim: 64
+  attn_slots: 6
+  dropout: 0.1
+  mlp_hidden: 64
+  mlp_dropout: 0.3
+  sbert_model: all-MiniLM-L6-v2
+retrieval:
+  n_hops: 2
+  alpha: 0.5
+  gamma: 1.0
+  structural_prior: pagerank
+  max_nodes: 16
+  backend: greedy
+  summarizer: offline
+diffusion:
+  p0: 0.1
+  rho_mode: cosine
+  rho_temperature: 1.0
+  n_sims: 1000
+  directed: false
+selection:
+  k: 50
+  method: dpp
+  theta: 0.1
+training:
+  scoring: heuristic
+  lr: 0.0005
+  weight_decay: 0.0001
+  epochs: 100
+  label_top_pct: 0.1
+  label_membership: 0.5
+  label_n_configs: 100
+  label_sims: 1000
+data:
+  name: synthetic
+  root: data/processed
+  n_communities: 6
+  nodes_per_community: 60
+  p_in: 0.1
+  p_out: 0.004
+  embedding_dim: 64
+  topic_separation: 2.0
+logging:
+  log_interval: 25
+  output_dir: outputs
+  eval_sims: 300

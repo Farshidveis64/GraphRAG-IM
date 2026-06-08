@@ -1,0 +1,79 @@
+{
+  "diversity": {
+    "ToupleGDD": {
+      "emb_distance": 1.2714537035661329,
+      "community_coverage": 6,
+      "cascade_overlap": 0.013987373343357116
+    },
+    "ToupleGDD+Text": {
+      "emb_distance": 1.115445439806393,
+      "community_coverage": 4,
+      "cascade_overlap": 0.01566861581060364
+    },
+    "GraphRAG-IM": {
+      "emb_distance": 1.3024113207386192,
+      "community_coverage": 6,
+      "cascade_overlap": 0.012444345330007761
+    }
+  },
+  "sensitivity_k": {
+    "k": [
+      5,
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "ToupleGDD+Text": [
+      15.63,
+      26.04,
+      48.145,
+      64.83,
+      80.535,
+      93.06
+    ],
+    "GraphRAG-IM": [
+      17.045,
+      30.15,
+      51.97,
+      69.31,
+      87.725,
+      101.34
+    ]
+  },
+  "sensitivity_p": {
+    "p": [
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "ToupleGDD+Text": [
+      68.46,
+      93.06,
+      127.835,
+      175.755
+    ],
+    "GraphRAG-IM": [
+      71.275,
+      101.34,
+      141.955,
+      189.525
+    ]
+  },
+  "ablation": {
+    "-Retrieval": {
+      "mean": 8.425579557820903,
+      "std": 3.495514012873849
+    },
+    "-Content": {
+      "mean": -0.8399826544339432,
+      "std": 1.7800543607536652
+    },
+    "-DPP": {
+      "mean": 6.233917776401868,
+      "std": 5.004096265501216
+    }
+  }
+}
