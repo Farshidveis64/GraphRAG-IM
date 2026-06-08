@@ -49,49 +49,18 @@ node's text per line), and optional `communities.txt` (one label per line).
 Run the full pipeline offline and compare content-conditioned DPP with top-k:
 
 ```bash
-python scripts/evaluate.py --config configs/default.yaml --dataset synthetic \
-    --k 20 --compare_selection --output outputs
-```
-
-On the disk dataset:
-
-```bash
-python scripts/evaluate.py --dataset example --k 20 --compare_selection --output outputs
-```
-
-A representative synthetic run (`k=20`, common random numbers):
-
-| Method | Spread | Emb. dist. ↑ | Comm. cov. ↑ | Cascade overlap ↓ |
-|--------|:------:|:-----------:|:------------:|:-----------------:|
-| top-k (score-ranked) | 49.1 | 0.56 | 5 / 6 | 0.016 |
-| **GraphRAG-IM (DPP)** | **51.2** | **1.00** | **6 / 6** | **0.009** |
+python scripts/evaluate.py 
 
 ### 3. Training
 
 Train the neural scorer (requires the optional extras):
 
 ```bash
-python scripts/train.py --config configs/default.yaml --dataset synthetic \
-    --output_dir outputs/model
+python scripts/train.py 
 ```
 
-### 4. Figures
 
-```bash
-python scripts/visualize.py --output_dir outputs/figures
-```
 
-## Configuration
-
-The default configuration is in `configs/default.yaml`. Key parameters:
-
-### Diffusion (evaluation ground truth)
-```yaml
-diffusion:
-  p0: 0.1                # base activation probability
-  rho_mode: "cosine"     # content-conditioned engagement ('uniform' = content-blind)
-  rho_temperature: 1.0
-```
 
 ### Retrieval (Stage 1)
 ```yaml
